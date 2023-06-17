@@ -1,5 +1,8 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0412: 2.3.7 (LinuxGuruGamer) for KSP 1.2.2
+	+ Fixed dropdown offset for when no probe control
+	+ Fixed issue when timewarping >stock max, Inactive Resource Convertors could use fuel more rapidly
 * 2017-0328: 2.3.6.3 (LinuxGuruGamer) for KSP 1.2.2
 	+ Replaced "s" button with icons
 	+ Fixed Physicless warp so that all use the same timestep
