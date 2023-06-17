@@ -1,5 +1,9 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2021-0704: 2.3.12.8 (LinuxGuruGamer) for KSP 1.12.1
+	+ Renamed the 1.8 to normal
+	+ Moved RegisterToolbar into it's own file
+	+ Moved drop-down button to the right to avoid a conflict with the new alarm clock
 * 2021-0624: 2.3.12.7 (LinuxGuruGamer) for KSP 1.12.0
 	+ Renamed BetterTimeWarp-1.8.0.version file back to normal : BetterTimeWarp.version
 	+ Moved dropdown button over 32 pixels for 1.12
