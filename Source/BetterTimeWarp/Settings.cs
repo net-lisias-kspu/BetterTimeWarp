@@ -23,10 +23,15 @@ using System.Reflection;
 // http://forum.kerbalspaceprogram.com/index.php?/topic/147576-modders-notes-for-ksp-12/#comment-2754813
 // search for "Mod integration into Stock Settings
 
+using USER = KSPe.IO.Data<BetterTimeWarp.BetterTimeWarp>;
+
 namespace BetterTimeWarp
 {
     public class BTWCustomParams : GameParameters.CustomParameterNode
     {
+        const string CONFIG_FILE = "BetterTimeWarp.cfg";
+        internal static readonly USER.ConfigNode USER_CONFIG = USER.ConfigNode.For(typeof(BetterTimeWarp).Namespace, CONFIG_FILE);
+
         public override string Title { get { return "Better Time Warp"; } }
         public override GameParameters.GameMode GameMode { get { return GameParameters.GameMode.ANY; } }
         public override string Section { get { return "Better Time Warp"; } }

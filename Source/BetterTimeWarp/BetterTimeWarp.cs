@@ -40,7 +40,6 @@ namespace BetterTimeWarp
         public static TimeWarpRates StandardWarp = new TimeWarpRates("Standard Warp", new float[] { 1f, 5f, 10f, 50f, 100f, 1000f, 10000f, 100000f }, false);
         public static TimeWarpRates StandardPhysWarp = new TimeWarpRates("Standard Physics Warp", new float[] { 1f, 2f, 3f, 4f }, true);
         //public static bool isEnabled = true;
-        public static ConfigNode SettingsNode;
 
         public List<TimeWarpRates> customWarps = new List<TimeWarpRates>();
         public static bool ShowUI = true;
@@ -654,7 +653,7 @@ namespace BetterTimeWarp
                         PopupDialog.SpawnPopupDialog(new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), dialog, false, HighLogic.UISkin, true);
                     }
                     //save the settings, so if they have been regenerated, it exsists and wont cause errors
-                    BetterTimeWarp.SettingsNode.Save(BetterTimeWarpInitializer.BTW_CFG_FILE);
+                    BTWCustomParams.USER_CONFIG.Save();
                 }
                 if (GUILayout.Button("Cancel", smallButtonStyle))
                 {
@@ -949,14 +948,7 @@ namespace BetterTimeWarp
 
         private void LoadCustomWarpRates()
         {
-            if (BetterTimeWarp.SettingsNode == null)
-                BetterTimeWarp.SettingsNode = new ConfigNode();
-            if (!SettingsNode.HasNode("BetterTimeWarp"))
-                SettingsNode.AddNode("BetterTimeWarp");
-            var node = SettingsNode.GetNode("BetterTimeWarp");
-
-            if (!SettingsNode.HasNode("BetterTimeWarp"))
-                SettingsNode.AddNode("BetterTimeWarp");
+			ConfigNode node = BTWCustomParams.USER_CONFIG.Node;
 
             if (node.HasValue("ScaleCameraSpeed"))
                 ScaleCameraSpeed = bool.Parse(node.GetValue("ScaleCameraSpeed"));
@@ -1030,10 +1022,7 @@ namespace BetterTimeWarp
 
         private void SaveCustomWarpRates()
         {
-            if (!SettingsNode.HasNode("BetterTimeWarp"))
-                SettingsNode.AddNode("BetterTimeWarp");
-
-            ConfigNode node = SettingsNode.GetNode("BetterTimeWarp");
+            ConfigNode node = BTWCustomParams.USER_CONFIG.Node;
 
             node.SetValue("ScaleCameraSpeed", ScaleCameraSpeed.ToString(), true);
             node.SetValue("UseLosslessPhysics", UseLosslessPhysics.ToString(), true);

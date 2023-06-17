@@ -19,19 +19,14 @@
 using System;
 using UnityEngine;
 
+using DEFAULT = KSPe.IO.Asset<BetterTimeWarp.BetterTimeWarp>;
+
 namespace BetterTimeWarp
 {
     [KSPAddon(KSPAddon.Startup.MainMenu, true)]
     public class BetterTimeWarpInitializer : MonoBehaviour
     {
-
-        const string CfgPath = "BetterTimeWarp/PluginData";
-
-        public static String ROOT_PATH;
-        private static String CONFIG_BASE_FOLDER;
-        private static String BTW_BASE_FOLDER;
-        public static String BTW_CFG_FILE;
-        private static String BTW_DEFAULT_CFG_FILE;
+        const string DEFAULT_FILE = "BetterTimeWarp_Defaults.cfg";
 
         static bool started = false;
         public void Start()
@@ -39,36 +34,24 @@ namespace BetterTimeWarp
             //only call this once at the beginning of the game
             if (!started)
             {
-                ROOT_PATH = KSPUtil.ApplicationRootPath;
-                CONFIG_BASE_FOLDER = ROOT_PATH + "GameData/";
-                BTW_BASE_FOLDER = CONFIG_BASE_FOLDER + "BetterTimeWarp/";
-                BTW_CFG_FILE = BTW_BASE_FOLDER + "PluginData/BetterTimeWarp.cfg";
-                BTW_DEFAULT_CFG_FILE = BTW_BASE_FOLDER + "PluginData/BetterTimeWarp_Defaults.cfg";
-
                 DontDestroyOnLoad(this);
                 ConfigNode node;
                 //load the settings
-                Log.dbg("Cfg file: {0}", BTW_CFG_FILE);
-                if (System.IO.File.Exists(BTW_CFG_FILE))
-                {
+                Log.dbg("Loading Configuration");
 
-                    BetterTimeWarp.SettingsNode = ConfigNode.Load(BTW_CFG_FILE);
+                if (BTWCustomParams.USER_CONFIG.IsLoadable)
+                {
+                    BTWCustomParams.USER_CONFIG.Load();
                     Log.detail("Config loaded");
                 }
                 else
                 {
-                    BetterTimeWarp.SettingsNode = ConfigNode.Load(BTW_DEFAULT_CFG_FILE);
+                    DEFAULT.ConfigNode @default = DEFAULT.ConfigNode.For(this.GetType().Namespace, DEFAULT_FILE);
+                    BTWCustomParams.USER_CONFIG.Save( @default.Load().Node);
                     Log.detail("Default configs loaded");
                 }
 
-                //if the settings are not found, regenerate them
-                if (BetterTimeWarp.SettingsNode == null)
-                    BetterTimeWarp.SettingsNode = new ConfigNode();
-
-                if (!BetterTimeWarp.SettingsNode.HasNode("BetterTimeWarp"))
-                    BetterTimeWarp.SettingsNode.AddNode("BetterTimeWarp");
-
-                node = BetterTimeWarp.SettingsNode.GetNode("BetterTimeWarp");
+                node = BTWCustomParams.USER_CONFIG.Node;
 
 #if false
                 if (!HighLogic.CurrentGame.Parameters.CustomParams<BTWCustomParams>().enabled)
@@ -77,8 +60,6 @@ namespace BetterTimeWarp
 					return;
 				}
 #endif
-                //save the settings, so if they have been regenerated, it exsists and wont cause errors
-                BetterTimeWarp.SettingsNode.Save(BTW_CFG_FILE);
 
                 //subscribe to the events so that the settings save and the UI can hide/show
                 GameEvents.onGameStateSaved.Add(SaveSettings);
@@ -131,9 +112,8 @@ namespace BetterTimeWarp
         //called whenever the game autosaves/quicksaves
         void SaveSettings(Game game)
         {
-            BetterTimeWarp.SettingsNode.Save(BTW_CFG_FILE, "BetterTimeWarp: Automatically saved at date " + System.DateTime.Now.ToString());
+            BTWCustomParams.USER_CONFIG.Save("BetterTimeWarp: Automatically saved at date " + System.DateTime.Now.ToString());
             Debug.Log("[BetterTimeWarp]: Settings saved");
-            BetterTimeWarp.SettingsNode = ConfigNode.Load(BTW_CFG_FILE);
         }
 
         //these are called when F2 is pressed to hide/show the UI
