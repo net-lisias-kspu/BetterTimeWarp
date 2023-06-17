@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2021-0719: 2.3.12.9 (LinuxGuruGamer) for KSP 1.12.1
+	+ Added AssemblyFileVersion
 * 2021-0704: 2.3.12.8 (LinuxGuruGamer) for KSP 1.12.1
 	+ Renamed the 1.8 to normal
 	+ Moved RegisterToolbar into it's own file
