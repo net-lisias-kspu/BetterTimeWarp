@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-1008: 2.3.9 (LinuxGuruGamer) for KSP 1.3.1
+	+ Updated for KSP 1.3.1
 * 2017-0526: 2.3.8 (LinuxGuruGamer) for KSP 1.3.0
 	+ updated for 1.3
 		- Updated dialog calls for new 1.3 parameter
