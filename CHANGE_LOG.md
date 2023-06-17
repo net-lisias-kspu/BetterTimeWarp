@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2020-0330: 2.3.12.6 (LinuxGuruGamer) for KSP 1.9.1
+	+ Rebuild and version bump to fix CKAN, dropping builds for 1.7.3
 * 2019-1203: 2.3.12.5 (LinuxGuruGamer) for KSP 1.8.1
 	+ Fixed initialization of vars to be initialized in Start() rather than the instantiator
 * 2019-1029: 2.3.12.4 (LinuxGuruGamer) for KSP 1.8.1
