@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2018-1211: 2.3.11.1 (LinuxGuruGamer) for KSP 1.5.1
+	+ Fixed stupid bug which caused nullrefs in the editor
 * 2018-1211: 2.3.11 (LinuxGuruGamer) for KSP 1.5.1
 	+ Bug fix for lossless physics causing issues, both after warp is done and while warp was in progress
 	+ Removed max version from .version file
