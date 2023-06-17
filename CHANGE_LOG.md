@@ -1,5 +1,12 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2023-0617: 2.3.13.1 (LisiasT) for KSP >= 1.3.1
+	+ Moves the thing into the `net.lisias.ksp` hierarchy
+	+ Uses KSPe facilities
+		- UI
+		- Abstract Filesystem 
+			- User settings is now now stored on the savegame's folder 
+	+ Makes the thing compatible down to KSP 1.3.1 **#HURRAY!!**
 * 2022-0125: 2.3.13 (LinuxGuruGamer) for KSP 1.12.5
 	+ Thanks to user @yalov for these:
 		- new Default Warp Rates
