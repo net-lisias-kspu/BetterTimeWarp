@@ -1,5 +1,9 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2019-1022: 2.3.12 (LinuxGuruGamer) for KSP 1.8.0
+	+ Added InstallChecker
+	+ Updated AssemblyVersion.tt
+	+ Rebuild for 1.8
 * 2019-1203: 2.3.11.9 (LinuxGuruGamer) for KSP 1.7.3
 	+ Fixed initialization of vars to be initialized in Start() rather than the instantiator
 * 2019-1029: 2.3.11.8 (LinuxGuruGamer) for KSP 1.7.3
