@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2019-1025: 2.3.12.1 (LinuxGuruGamer) for KSP 1.8.0
+	+ Updated MiniAVC to 1.4.0
 * 2019-1022: 2.3.12 (LinuxGuruGamer) for KSP 1.8.0
 	+ Added InstallChecker
 	+ Updated AssemblyVersion.tt
