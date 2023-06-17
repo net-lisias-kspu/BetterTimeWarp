@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0301: 2.3.5.3 (LinuxGuruGamer) for KSP 1.2.2
+	+ Fixed nullrefs which were occuring during startup
 * 2017-0301: 2.3.5.2 (LinuxGuruGamer) for KSP 1.2.2
 ```
 Changed checks from circumstances to seeing if the icons are being displayed.
