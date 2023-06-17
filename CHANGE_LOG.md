@@ -1,5 +1,15 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0207: 2.3.3 (LinuxGuruGamer) for KSP 1.2.2
+	+ Moved enabled setting into standard system settings
+	+ Fixed window from staying open on the main menu
+	+ Made windows movable
+	+ Changed mod activation from gameObject.AddComponent<BetterTimeWarp> (); to using the   [KSPAddon(KSPAddon.Startup.FlightAndKSC | KSPAddon.Startup.TrackingStation, false)]
+	+ Added setting to hide button in all scenes
+	+ Added setting to hide button in flight
+	+ Added setting to  lock window positions in Flight
+	+ Added setting to lock window positions everywhere else
+	+ Fixed dialogs which didn't have an OK button
 * 2017-0206: 2.3.2 (LinuxGuruGamer) for KSP 1.2.2
 	+ Renamed distributed settings file
 * 2017-0114: 2.3.1 (LinuxGuruGamer) for KSP 1.2.2
