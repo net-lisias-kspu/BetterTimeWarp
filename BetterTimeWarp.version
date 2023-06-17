@@ -1,0 +1,18 @@
+{
+	"NAME"		: "BetterTimeWarp /L Unleashed",
+	"URL"		: "https://raw.githubusercontent.com/net-lisias-kspu/BetterTimeWarp/master/BetterTimeWarp.version",
+	"DOWNLOAD"	: "https://github.com/net-lisias-kspu/BetterTimeWarp/releases",
+	"CHANGE_LOG"	: "https://raw.githubusercontent.com/net-lisias-kspu/BetterTimeWarp/master/CHANGE_LOG.md",
+	"CHANGE_LOG_URL": "https://raw.githubusercontent.com/net-lisias-kspu/BetterTimeWarp/master/CHANGES.md",
+	"VERSION":{
+		"MAJOR":2,
+		"MINOR":3,
+		"PATCH":11,
+		"BUILD":90
+		},
+	"KSP_VERSION_MIN":{
+		"MAJOR":1,
+		"MINOR":3,
+		"PATCH":1
+		}
+}

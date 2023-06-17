@@ -1,142 +1,108 @@
-﻿using System;
+﻿/*
+	This file is part of Better Time Warp /L Unleashed
+		© 2023 Lisias T : http://lisias.net <support@lisias.net>
+
+	THIS FILE is licensed to you under:
+
+	* WTFPL - http://www.wtfpl.net
+		* Everyone is permitted to copy and distribute verbatim or modified
+ 			copies of this license document, and changing it is allowed as long
+			as the name is changed.
+
+	THIS FILE is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+using System;
 using System.Collections;
 using System.Diagnostics;
 
+using Logger = KSPe.Util.Log.Logger;
 
 namespace BetterTimeWarp
 {
+	public static class Log
+	{
+		private static readonly Logger LOG = Logger.CreateForType<BetterTimeWarp>();
 
+		public static int debuglevel
+		{
+			get => (int)LOG.level;
+			set => LOG.level = (KSPe.Util.Log.Level)(value % 6);
+		}
 
-    public static class Log
-    {
-        public enum LEVEL
-        {
-            OFF = 0,
-            ERROR = 1,
-            WARNING = 2,
-            INFO = 3,
-            DETAIL = 4,
-            TRACE = 5
-        };
+		public static void force(string format, params object[] @parms)
+		{
+			LOG.force(format, parms);
+		}
 
-        public static LEVEL level = LEVEL.INFO;
+		public static void trace(string format, params object[] @parms)
+		{
+			LOG.trace(format, parms);
+		}
 
-        private static readonly String PREFIX = "BetterTimeWarp" + ": ";
+		public static void detail(string format, params object[] @parms)
+		{
+			LOG.detail(format, parms);
+		}
 
-        public static LEVEL GetLevel()
-        {
-            return level;
-        }
+		public static void info(string format, params object[] @parms)
+		{
+			LOG.info(format, parms);
+		}
 
-        public static void SetLevel(LEVEL level)
-        {
-            UnityEngine.Debug.Log("log level " + level);
-            Log.level = level;
-        }
+		public static void warn(string format, params object[] @parms)
+		{
+			LOG.warn(format, parms);
+		}
 
-        public static LEVEL GetLogLevel()
-        {
-            return level;
-        }
+		public static void err(string format, params object[] parms)
+		{
+			LOG.error(format, parms);
+		}
 
-        private static bool IsLevel(LEVEL level)
-        {
-            return level == Log.level;
-        }
+		public static void ex(object offended, System.Exception e)
+		{
+			LOG.error(offended, e);
+		}
 
-        public static bool IsLogable(LEVEL level)
-        {
-            return level <= Log.level;
-        }
+		[Conditional("DEBUG")]
+		public static void dbg(string format, params object[] @parms)
+		{
+			LOG.dbg(format, parms);
+		}
 
-        public static void Trace(String msg)
-        {
-            if (IsLogable(LEVEL.TRACE))
-            {
-                UnityEngine.Debug.Log(PREFIX + msg);
-            }
-        }
+		static Stack funcStack = new Stack();
+		[ConditionalAttribute("DEBUG")]
+		public static void PushStackInfo(string funcName, string msg)
+		{
+			funcStack.Push(funcName);
+			Log.detail(msg);
+		}
 
-        public static void Detail(String msg)
-        {
-            if (IsLogable(LEVEL.DETAIL))
-            {
-                UnityEngine.Debug.Log(PREFIX + msg);
-            }
-        }
+		[ConditionalAttribute("DEBUG")]
+		public static void PopStackInfo(string msg)
+		{
+			if (funcStack.Count > 0)
+			{
+				string f = (string)funcStack.Pop();
+			}
+			else
+				Log.warn("Pop failed, no values on stack");
+			Log.dbg(msg);
+		}
 
-        [ConditionalAttribute("DEBUG")]
-        public static void Info(String msg)
-        {
-            if (IsLogable(LEVEL.INFO))
-            {
-                UnityEngine.Debug.Log(PREFIX + msg);
-            }
-        }
+		[ConditionalAttribute("DEBUG")]
+		public static void ShowStackInfo()
+		{
+			int cnt = 0;
+			Log.dbg("Stack size: " + funcStack.Count.ToString());
+			foreach (var obj in funcStack)
+			{
+				Log.dbg("Stack[" + cnt.ToString() + "] = " + (string)obj);
+				cnt++;
+			}
+		}
 
-        [ConditionalAttribute("DEBUG")]
-        public static void Test(String msg)
-        {
-            //if (IsLogable(LEVEL.INFO))
-            {
-                UnityEngine.Debug.LogWarning(PREFIX + "TEST:" + msg);
-            }
-        }
-
-        static Stack funcStack = new Stack();
-
-        [ConditionalAttribute("DEBUG")]
-        public static void PushStackInfo(string funcName, string msg)
-        {
-            funcStack.Push(funcName);
-            //  if (Debug_Level_1_Active)
-            Log.Info(msg);
-        }
-
-        [ConditionalAttribute("DEBUG")]
-        public static void PopStackInfo(string msg)
-        {
-            if (funcStack.Count > 0)
-            {
-                string f = (string)funcStack.Pop();
-            }
-            else
-                Log.Info("Pop failed, no values on stack");
-            //if (Debug_Level_1_Active)
-            Log.Info(msg);
-        }
-        [ConditionalAttribute("DEBUG")]
-        public static void ShowStackInfo()
-        {
-            int cnt = 0;
-            Log.Info("Stack size: " + funcStack.Count.ToString());
-            foreach (var obj in funcStack)
-            {
-                Log.Info("Stack[" + cnt.ToString() + "] = " + (string)obj);
-                cnt++;
-            }
-        }
-
-        public static void Warning(String msg)
-        {
-            if (IsLogable(LEVEL.WARNING))
-            {
-                UnityEngine.Debug.LogWarning(PREFIX + msg);
-            }
-        }
-
-        public static void Error(String msg)
-        {
-            if (IsLogable(LEVEL.ERROR))
-            {
-                UnityEngine.Debug.LogError(PREFIX + msg);
-            }
-        }
-
-        public static void Exception(Exception e)
-        {
-            Log.Error("exception caught: " + e.GetType() + ": " + e.Message);
-        }
-
-    }
+	}
 }

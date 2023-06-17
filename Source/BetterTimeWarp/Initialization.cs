@@ -1,5 +1,22 @@
+/*
+	This file is part of Better Time Warp /L Unleashed
+		© 2023 Lisias T : http://lisias.net <support@lisias.net>
+		© 2017-2023 LinuxGuruGamer
+		© 2014-2017 MrHappyFace
+
+	Better Time Warp /L Unleashed is licensed as follows:
+		* GPL 3.0 : https://www.gnu.org/licenses/gpl-3.0.txt
+
+	Better Time Warp /L Unleashed is distributed in the hope that
+	it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+	warranty of	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+	You should have received a copy of the GNU General Public License 3.0
+	along with Better Time Warp /L Unleashed.
+	If not, see <https://www.gnu.org/licenses/>.
+
+*/
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BetterTimeWarp
@@ -31,17 +48,17 @@ namespace BetterTimeWarp
                 DontDestroyOnLoad(this);
                 ConfigNode node;
                 //load the settings
-                Log.Info("Cfg file: " + BTW_CFG_FILE);
+                Log.dbg("Cfg file: {0}", BTW_CFG_FILE);
                 if (System.IO.File.Exists(BTW_CFG_FILE))
                 {
 
                     BetterTimeWarp.SettingsNode = ConfigNode.Load(BTW_CFG_FILE);
-                    Log.Info("Config loaded");
+                    Log.detail("Config loaded");
                 }
                 else
                 {
                     BetterTimeWarp.SettingsNode = ConfigNode.Load(BTW_DEFAULT_CFG_FILE);
-                    Log.Info("Default configs loaded");
+                    Log.detail("Default configs loaded");
                 }
 
                 //if the settings are not found, regenerate them
@@ -94,7 +111,7 @@ namespace BetterTimeWarp
 
         private void onGameStateLoad(ConfigNode data)
         {
-            Log.Info("onGameStateLoad: Interval = " + GameSettings.AUTOSAVE_INTERVAL / 60.0 + " min");
+            Log.dbg("onGameStateLoad: Interval = " + GameSettings.AUTOSAVE_INTERVAL / 60.0 + " min");
 
             HighLogic.CurrentGame.Parameters.CustomParams<BTWCustomParams2>().StockAutosaveInterval =
                 (int)(GameSettings.AUTOSAVE_INTERVAL / 60.0);

@@ -1,14 +1,33 @@
-using System;
+/*
+	This file is part of Better Time Warp /L Unleashed
+		© 2023 Lisias T : http://lisias.net <support@lisias.net>
+		© 2017-2023 LinuxGuruGamer
+		© 2014-2017 MrHappyFace
+
+	Better Time Warp /L Unleashed is licensed as follows:
+		* GPL 3.0 : https://www.gnu.org/licenses/gpl-3.0.txt
+
+	Better Time Warp /L Unleashed is distributed in the hope that
+	it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+	warranty of	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+	You should have received a copy of the GNU General Public License 3.0
+	along with Better Time Warp /L Unleashed.
+	If not, see <https://www.gnu.org/licenses/>.
+
+*/
 using System.Linq;
 using System.Collections.Generic;
+using System.Reflection;
+
 using UnityEngine;
 using CommNet;
 using KSP.UI.Screens;
 using KSP.UI.Screens.Flight;
 
-using System.Reflection;
-using ClickThroughFix;
-using ToolbarControl_NS;
+using GUILayout = KSPe.UI.GUILayout;
+using GUI = KSPe.UI.GUI;
+using Toolbar = KSPe.UI.Toolbar;
 
 //using NearFutureElectrical;
 
@@ -38,8 +57,6 @@ namespace BetterTimeWarp
             }
         }
        // public ApplicationLauncherButton Button;
-        ToolbarControl toolbarControl;
-
         private bool hasAdded = false;
 
         static Texture2D upArrow;
@@ -92,17 +109,20 @@ namespace BetterTimeWarp
             {
                 if (!HighLogic.CurrentGame.Parameters.CustomParams<BTWCustomParams>().hideButtonInFlight || HighLogic.LoadedScene != GameScenes.FLIGHT)
                 {
+                    Toolbar.Button button = Toolbar.Button.Create(this
+                            , ApplicationLauncher.AppScenes.SPACECENTER | ApplicationLauncher.AppScenes.TRACKSTATION |
+                                ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW
+                            , UI.application_38
+                            , UI.application_24
+                        );
 
-                    toolbarControl = gameObject.AddComponent<ToolbarControl>();
-                    toolbarControl.AddToAllToolbars(OnTrue, OnFalse,
-                        ApplicationLauncher.AppScenes.SPACECENTER | ApplicationLauncher.AppScenes.TRACKSTATION |
-                        ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW,
-                        MODID,
-                        "betterTimeWarpButton",
-                        "BetterTimeWarp/Icons/application_38",
-                        "BetterTimeWarp/Icons/application_24",
-                        MODNAME
-                    );
+                    button.Toolbar
+                        .Add(Toolbar.Button.ToolbarEvents.Kind.Active,
+                            new Toolbar.Button.Event(this.OnTrue, this.OnFalse)
+                        );
+                    ;
+
+                    ToolbarController.Instance.Add(button);
 
                     hasAdded = true;
                 }
@@ -153,8 +173,8 @@ namespace BetterTimeWarp
 
         public void removeLauncherButtons()
         {
-            toolbarControl.OnDestroy();
-            Destroy(toolbarControl);
+            this.hasAdded = false;
+            ToolbarController.Instance.Destroy();
         }
 
         void InitW()
@@ -172,7 +192,7 @@ namespace BetterTimeWarp
         // When coming out of warp, fix issue with ResourceConverter
         void onPartUnpack(Part p)
         {
-            Log.Info("Unpacking part: " + p.partInfo.name);
+            Log.dbg("Unpacking part: {0}", p.partInfo.name);
             if (resourceConverterParts.Contains(p))
             {
                 resourceConverterParts.Remove(p);
@@ -190,17 +210,17 @@ namespace BetterTimeWarp
                         case "KFAPUController":
                         case "ModuleResourceConverter":
                             ModuleResourceConverter tmpGen = (ModuleResourceConverter)tmpPM;
-                            Log.Info("Module: " + tmpGen.moduleName + " IsActivated: " + tmpGen.IsActivated.ToString());
+                            Log.dbg("Module: {0} IsActivated: {1}", tmpGen.moduleName, tmpGen.IsActivated);
                             // if (!tmpGen.IsActivated)
                             {
                                 FieldInfo fi = tmpGen.GetType().GetField("lastUpdateTime", BindingFlags.NonPublic | BindingFlags.Instance);
                                 if (fi != null)
                                 {
-                                    Log.Info("Updating lastUpdateTime");
+                                    Log.dbg("Updating lastUpdateTime");
                                     fi.SetValue(tmpGen, Planetarium.GetUniversalTime());
                                 }
                                 else
-                                    Log.Info("Unable to get pointer to lastUpdateTime");
+                                    Log.warn("Unable to get pointer to lastUpdateTime");
                             }
 
                             break;
@@ -233,7 +253,7 @@ namespace BetterTimeWarp
                                     case "KFAPUController":
                                     case "ModuleResourceConverter":
                                         ModuleResourceConverter tmpGen = (ModuleResourceConverter)tmpPM;
-                                        Log.Info("Module: " + tmpGen.moduleName + " IsActivated: " + tmpGen.IsActivated.ToString());
+                                        Log.dbg("Module: {0} IsActivated: {1}", tmpGen.moduleName, tmpGen.IsActivated);
                                         if (!tmpGen.IsActivated)
                                         {
                                             if (!resourceConverterParts.Contains(p))
@@ -247,11 +267,11 @@ namespace BetterTimeWarp
                                                 FieldInfo fi = tmpGen.GetType().GetField("lastUpdateTime", BindingFlags.NonPublic | BindingFlags.Instance);
                                                 if (fi != null)
                                                 {
-                                                    Log.Info("Updating lastUpdateTime");
+                                                    Log.dbg("Updating lastUpdateTime");
                                                     fi.SetValue(tmpGen, Planetarium.GetUniversalTime());
                                                 }
                                                 else
-                                                    Log.Info("Unable to get pointer to lastUpdateTime");
+                                                    Log.warn("Unable to get pointer to lastUpdateTime");
                                             }
                                         }
                                         break;
@@ -366,13 +386,13 @@ namespace BetterTimeWarp
                 if (windowOpen)
                 {
                     if (!advWindowOpen)
-                        quikWindowRect = ClickThruBlocker.GUILayoutWindow(60371, quikWindowRect, QuikWarpWindow, "", windowStyle);
+                        quikWindowRect = GUILayout.Window(60371, quikWindowRect, QuikWarpWindow, "", windowStyle);
                     else
                     {
-                        advWindowRect = ClickThruBlocker.GUILayoutWindow(60372, advWindowRect, TimeWarpWindow, "", windowStyle);
+                        advWindowRect = GUILayout.Window(60372, advWindowRect, TimeWarpWindow, "", windowStyle);
                         if (showPhysicsSettings)
                         {
-                            physSettingsRect = ClickThruBlocker.GUILayoutWindow(60373, physSettingsRect, PhysicsSettingsWindow, "", windowStyle);
+                            physSettingsRect = GUILayout.Window(60373, physSettingsRect, PhysicsSettingsWindow, "", windowStyle);
                         }
                     }
 
@@ -875,7 +895,7 @@ namespace BetterTimeWarp
                         }
                     }
 
-                    Log.Info("Set time warp rates to " + rates.ToString());
+                    Log.info("Set time warp rates to {0}", rates);
                     if (message)
                         ScreenMessages.PostScreenMessage(new ScreenMessage("New time warp rates: " + rates.Name, 3f, ScreenMessageStyle.UPPER_CENTER));
                     return;
@@ -894,14 +914,14 @@ namespace BetterTimeWarp
                         }
                     }
 
-                    Log.Info("Set time warp rates to " + rates.ToString());
+                    Log.info("Set time warp rates to " + rates.ToString());
                     if (message)
                         ScreenMessages.PostScreenMessage(new ScreenMessage("New physic warp rates: " + rates.Name, 3f, ScreenMessageStyle.UPPER_CENTER));
                     return;
                 }
                 return;
             }
-            Log.Warning("Failed to set warp rates");
+            Log.warn("Failed to set warp rates");
 
 #if false
             //reset it to standard in case of  failiure
@@ -1008,7 +1028,7 @@ namespace BetterTimeWarp
             if (CurrentWarp == null)
             {
                 CurrentWarp = StandardWarp;
-                Log.Info("CurrentWarp set to StandardWarp  2");
+                Log.info("CurrentWarp set to StandardWarp  2");
             }
             if (CurrentPhysWarp == null)
                 CurrentPhysWarp = StandardPhysWarp;
@@ -1059,7 +1079,7 @@ namespace BetterTimeWarp
             if (CurrentWarp == null)
             {
                 CurrentWarp = StandardWarp;
-                Log.Info("CurrentWarp set to StandardWarp  3");
+                Log.info("CurrentWarp set to StandardWarp  3");
             }
             if (CurrentPhysWarp == null)
                 CurrentPhysWarp = StandardPhysWarp;
