@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0207: 2.3.4 (LinuxGuruGamer) for KSP 1.2.2
+	+ Fixed the dropdown icon from covering up the Commnet icons
 * 2017-0207: 2.3.3 (LinuxGuruGamer) for KSP 1.2.2
 	+ Moved enabled setting into standard system settings
 	+ Fixed window from staying open on the main menu
