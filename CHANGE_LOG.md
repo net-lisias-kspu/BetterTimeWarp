@@ -1,5 +1,8 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2021-0624: 2.3.12.7 (LinuxGuruGamer) for KSP 1.12.0
+	+ Renamed BetterTimeWarp-1.8.0.version file back to normal : BetterTimeWarp.version
+	+ Moved dropdown button over 32 pixels for 1.12
 * 2020-0330: 2.3.12.6 (LinuxGuruGamer) for KSP 1.9.1
 	+ Rebuild and version bump to fix CKAN, dropping builds for 1.7.3
 * 2019-1203: 2.3.12.5 (LinuxGuruGamer) for KSP 1.8.1
