@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0301: 2.3.5.4 (LinuxGuruGamer) for KSP 1.2.2
+	+ removed some log spam
 * 2017-0301: 2.3.5.3 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed nullrefs which were occuring during startup
 * 2017-0301: 2.3.5.2 (LinuxGuruGamer) for KSP 1.2.2
