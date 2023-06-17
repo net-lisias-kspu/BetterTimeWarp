@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2019-1029: 2.3.12.4 (LinuxGuruGamer) for KSP 1.8.1
+	+ Fixed issue with selected timewarp being reset upon scene change
 * 2019-1027: 2.3.12.3 (LinuxGuruGamer) for KSP 1.8.0
 	+ Really did the MiniAVC update
 * 2019-1027: 2.3.12.2 (LinuxGuruGamer) for KSP 1.8.0
