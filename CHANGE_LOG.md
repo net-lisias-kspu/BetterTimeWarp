@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0228: 2.3.5.1 (LinuxGuruGamer) for KSP 1.2.2
+	+ Added check for relay when adjusting dropdown
 * 2017-0228: 2.3.5 (LinuxGuruGamer) for KSP 1.2.2
 ```
 Fixed button not appearing on map view and in tracking screen
