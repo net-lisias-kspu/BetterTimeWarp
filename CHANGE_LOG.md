@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0412: 2.3.7.1 (LinuxGuruGamer) for KSP 1.2.2
+	+ Now looks at all vesselsLoaded when fixing the ResourceConverter problem
 * 2017-0412: 2.3.7 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed dropdown offset for when no probe control
 	+ Fixed issue when timewarping >stock max, Inactive Resource Convertors could use fuel more rapidly
