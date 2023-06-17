@@ -1,5 +1,11 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0413: 2.3.7.3 (LinuxGuruGamer) for KSP 1.2.2
+	+ Fixed display of very large values to not use scientific notation
+	+ Fixed issue where sometimes, with high warp, vessels using the ResourceConverter were being unpacked after the fix for the high warp issue was done.  Thanks to forum user @eech for helping to test this.
+	+ Added code to deal with someone turning on a ResourceConverter while in warp
+	+ Changed code from being started every scene to only being started at the spacecenter, and set not to destroy
+	+ Renamed config file in release to defaults, will not overwrite existing configs after this release
 * 2017-0412: 2.3.7.1 (LinuxGuruGamer) for KSP 1.2.2
 	+ Now looks at all vesselsLoaded when fixing the ResourceConverter problem
 * 2017-0412: 2.3.7 (LinuxGuruGamer) for KSP 1.2.2
