@@ -1,5 +1,12 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0228: 2.3.5 (LinuxGuruGamer) for KSP 1.2.2
+```
+Fixed button not appearing on map view and in tracking screen
+Fixed dropdown location when Kerbal is on EVA
+Fixed dropdown location when Commnet is not active
+Added option to disable dropdown in settings
+```
 * 2017-0207: 2.3.4 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed the dropdown icon from covering up the Commnet icons
 * 2017-0207: 2.3.3 (LinuxGuruGamer) for KSP 1.2.2
