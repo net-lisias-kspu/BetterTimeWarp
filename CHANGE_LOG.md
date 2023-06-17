@@ -1,5 +1,12 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2022-0125: 2.3.13 (LinuxGuruGamer) for KSP 1.12.5
+	+ Thanks to user @yalov for these:
+		- new Default Warp Rates
+		- Physics Warp 1, 4, 8, 12
+		- add AUTOSAVE_INTERVAL and AUTOSAVE_SHORT_INTERVAL to settings
+		- fix rounding
+		- add new Default CustomWarpRates: Five Warp, Soft Physics Warp, Physics Warp 6-10, Physics Warp 15-30
 * 2021-0719: 2.3.12.9 (LinuxGuruGamer) for KSP 1.12.1
 	+ Added AssemblyFileVersion
 * 2021-0704: 2.3.12.8 (LinuxGuruGamer) for KSP 1.12.1
