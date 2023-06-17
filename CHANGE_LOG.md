@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0113: 2.3.0 (LinuxGuruGamer) for KSP 1.2.2
+	+ Initial Release
 * 2015-1116: 2.2 (MrHappyFace) for KSP 1.0.5
 	+ Changelog:
 		- Updated to 1.0.5
