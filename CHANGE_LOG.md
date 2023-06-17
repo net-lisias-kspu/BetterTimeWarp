@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2019-1203: 2.3.11.9 (LinuxGuruGamer) for KSP 1.7.3
+	+ Fixed initialization of vars to be initialized in Start() rather than the instantiator
 * 2019-1029: 2.3.11.8 (LinuxGuruGamer) for KSP 1.7.3
 	+ Fixed issue with selected timewarp being reset upon scene change, KSP 1.7.3 version
 * 2019-0625: 2.3.11.4 (LinuxGuruGamer) for KSP 1.7.2
