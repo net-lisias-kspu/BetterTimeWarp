@@ -1,5 +1,11 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2015-0805: 2.1 (MrHappyFace) for KSP 1.0.5
+	+ Changelog:
+		- Added persistent time warp selections.
+		- Added the GUI to the space center and tracking station
+		- Minor bugfixes
+		- 1.0.4 support
 * 2015-0510: 2.0 (MrHappyFace) for KSP 1.0.5
 	+ Changes:
 		- Completely overhauled UI
