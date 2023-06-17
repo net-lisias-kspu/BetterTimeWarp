@@ -1,5 +1,8 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2018-1211: 2.3.11 (LinuxGuruGamer) for KSP 1.5.1
+	+ Bug fix for lossless physics causing issues, both after warp is done and while warp was in progress
+	+ Removed max version from .version file
 * 2018-1020: 2.3.10.2 (LinuxGuruGamer) for KSP 1.5.1
 	+ Version bump for 1.5 rebuild
 * 2018-0620: 2.3.10.1 (LinuxGuruGamer) for KSP 1.4.3
