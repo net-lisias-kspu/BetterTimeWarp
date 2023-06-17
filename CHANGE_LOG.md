@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2019-1029: 2.3.11.8 (LinuxGuruGamer) for KSP 1.7.3
+	+ Fixed issue with selected timewarp being reset upon scene change, KSP 1.7.3 version
 * 2019-0625: 2.3.11.4 (LinuxGuruGamer) for KSP 1.7.2
 	+ Version bump for 1.7.2
 * 2019-0328: 2.3.11.3 (LinuxGuruGamer) for KSP 1.6.1
