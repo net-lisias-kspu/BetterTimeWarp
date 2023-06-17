@@ -1,5 +1,9 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2018-0620: 2.3.10.1 (LinuxGuruGamer) for KSP 1.4.3
+	+ Updated for all 1.4
+	+ Updated to use updated ToolbarControl
+	+ Removed blizzy options
 * 2018-0319: 2.3.10 (LinuxGuruGamer) for KSP 1.4.1
 	+ updated for 1.4.1
 	+ Added support for ToolbarControl
