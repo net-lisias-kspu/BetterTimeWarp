@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2019-0625: 2.3.11.4 (LinuxGuruGamer) for KSP 1.7.2
+	+ Version bump for 1.7.2
 * 2019-0328: 2.3.11.3 (LinuxGuruGamer) for KSP 1.6.1
 * 2019-0109: 2.3.11.2 (LinuxGuruGamer) for KSP 1.6.0
 * 2018-1211: 2.3.11.1 (LinuxGuruGamer) for KSP 1.5.1
