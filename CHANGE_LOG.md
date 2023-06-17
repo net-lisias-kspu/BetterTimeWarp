@@ -1,5 +1,8 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0328: 2.3.6.3 (LinuxGuruGamer) for KSP 1.2.2
+	+ Replaced "s" button with icons
+	+ Fixed Physicless warp so that all use the same timestep
 * 2017-0305: 2.3.6.1 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed nullref when no comms are available, affected positioning of dropdown button
 * 2017-0305: 2.3.6 (LinuxGuruGamer) for KSP 1.2.2
