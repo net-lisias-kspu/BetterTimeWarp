@@ -1,5 +1,10 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0301: 2.3.5.2 (LinuxGuruGamer) for KSP 1.2.2
+```
+Changed checks from circumstances to seeing if the icons are being displayed.
+Fixed nullrefs when Commnet not enabled in flight scene
+```
 * 2017-0228: 2.3.5.1 (LinuxGuruGamer) for KSP 1.2.2
 	+ Added check for relay when adjusting dropdown
 * 2017-0228: 2.3.5 (LinuxGuruGamer) for KSP 1.2.2
