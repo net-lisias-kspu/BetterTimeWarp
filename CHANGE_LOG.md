@@ -1,5 +1,10 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2015-1116: 2.2 (MrHappyFace) for KSP 1.0.5
+	+ Changelog:
+		- Updated to 1.0.5
+		- Fixed spelling errors
+		- Fixed configuration error
 * 2015-0805: 2.1 (MrHappyFace) for KSP 1.0.5
 	+ Changelog:
 		- Added persistent time warp selections.
