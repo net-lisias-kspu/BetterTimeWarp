@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0417: 2.3.7.4 (LinuxGuruGamer) for KSP 1.2.2
+	+ Fixed mod not saving custom values
 * 2017-0413: 2.3.7.3 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed display of very large values to not use scientific notation
 	+ Fixed issue where sometimes, with high warp, vessels using the ResourceConverter were being unpacked after the fix for the high warp issue was done.  Thanks to forum user @eech for helping to test this.
