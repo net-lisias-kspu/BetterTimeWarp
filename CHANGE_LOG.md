@@ -1,5 +1,9 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0526: 2.3.8 (LinuxGuruGamer) for KSP 1.3.0
+	+ updated for 1.3
+		- Updated dialog calls for new 1.3 parameter
+		- Added DisplaySection function, will need to localize it
 * 2017-0417: 2.3.7.4 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed mod not saving custom values
 * 2017-0413: 2.3.7.3 (LinuxGuruGamer) for KSP 1.2.2
