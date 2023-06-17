@@ -1,5 +1,7 @@
 # Better Time Warp /L Unleashed :: Change Log
 
+* 2017-0206: 2.3.2 (LinuxGuruGamer) for KSP 1.2.2
+	+ Renamed distributed settings file
 * 2017-0114: 2.3.1 (LinuxGuruGamer) for KSP 1.2.2
 	+ Changed settings file to live in PluginData as a true .cfg file
 	+ Fixed "enabled" setting in cfg file to be in a node
