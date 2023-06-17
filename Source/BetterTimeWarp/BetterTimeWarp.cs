@@ -59,9 +59,6 @@ namespace BetterTimeWarp
        // public ApplicationLauncherButton Button;
         private bool hasAdded = false;
 
-        static Texture2D upArrow;
-        static Texture2D downArrow;
-        
         public void Start()
         {
             DontDestroyOnLoad(this);
@@ -91,11 +88,8 @@ namespace BetterTimeWarp
             hSmallScrollBar = new GUIStyle(skin.horizontalScrollbar);
             hSmallScrollBar.fixedHeight = 0f;
 
-            upArrow = GameDatabase.Instance.GetTexture("BetterTimeWarp/Icons/up", false);
-            downArrow = GameDatabase.Instance.GetTexture("BetterTimeWarp/Icons/down", false);
-
-            upContent = new GUIContent("", upArrow, "");
-            downContent = new GUIContent("", downArrow, "");
+            upContent = new GUIContent("", UI.upArrow, "");
+            downContent = new GUIContent("", UI.downArrow, "");
             buttonContent = downContent;
             CreateRectangles();
             GameEvents.onGameStateSave.Add(SaveSettingsAndCrap);

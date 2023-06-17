@@ -26,5 +26,7 @@ namespace BetterTimeWarp
     {
         internal static readonly Texture2D application_38 = Asset.Texture2D.LoadFromFile("Icons", "application_38");
         internal static readonly Texture2D application_24 = Asset.Texture2D.LoadFromFile("Icons", "application_24");
-    }
+        internal static readonly Texture2D upArrow = Asset.Texture2D.LoadFromFile("Icons", "up");
+        internal static readonly Texture2D downArrow = Asset.Texture2D.LoadFromFile("Icons", "down");
+   }
 }
